@@ -18,9 +18,6 @@ def load_data():
 
     return data
 
-
-
-
 st.sidebar.title('Navigate Through Pages')
 page= st.sidebar.radio('Explore pages', ['Charts & Visualizations', 'Raw Data'])
 
@@ -75,6 +72,5 @@ if page=='Charts & Visualizations':
 
 
 if page=='Raw Data':
-
     st.subheader('Raw data')
     st.write(data)
