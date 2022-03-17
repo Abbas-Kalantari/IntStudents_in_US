@@ -69,11 +69,12 @@ if page=='Charts & Visualizations':
                 st.plotly_chart(index_graph)
 
                 current_pop_data= subset_data.groupby('country').sum().reset_index()
-                current_pop_graph = px.bar(x=current_pop_data["year"],
+                current_pop_graph = px.line(x=current_pop_data["country"],
                                     y=current_pop_data["student_number"],
                                     width=1000,
                                     color=current_pop_data["country"],
                                     )  # plotly graph
+
                 current_pop_graph.update_layout(title=f'Total Students (Accumulative)',
                                         xaxis=dict(title='Country'),
                                         yaxis=dict(title=f'Total Students Since {start_date}'),
