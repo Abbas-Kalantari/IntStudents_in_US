@@ -67,6 +67,19 @@ if page=='Charts & Visualizations':
                                         legend_title=dict(text='<b>Countries</b>')
                                         )
                 st.plotly_chart(index_graph)
+
+                current_pop_data= subset_data.groupby('country').sum().reset_index()
+                current_pop_graph = px.bar(x=current_pop_data["year"],
+                                    y=current_pop_data["student_number"],
+                                    width=1000,
+                                    color=current_pop_data["country"],
+                                    )  # plotly graph
+                current_pop_graph.update_layout(title=f'Total Students (Accumulative)',
+                                        xaxis=dict(title='Country'),
+                                        yaxis=dict(title=f'Total Students Since {start_date}'),
+                                        legend_title=dict(text='<b>Countries</b>')
+                                        )
+                st.plotly_chart(current_pop_graph)
         
         draw_plots()
 
